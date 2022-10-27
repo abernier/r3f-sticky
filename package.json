@@ -1,5 +1,5 @@
 {
-  "name": "tpl-r3f",
+  "name": "r3f-sticky",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,6 +7,7 @@
     "@emotion/styled": "^11.10.4",
     "@react-three/drei": "^9.37.1",
     "@react-three/fiber": "^8.8.10",
+    "color": "^4.2.3",
     "leva": "^0.9.32",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
