@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "https://abernier.github.io/r3f-sticky/static/css/main.93a0497a.css",
+    "main.js": "https://abernier.github.io/r3f-sticky/static/js/main.0913fcfc.js",
+    "index.html": "https://abernier.github.io/r3f-sticky/index.html",
+    "main.93a0497a.css.map": "https://abernier.github.io/r3f-sticky/static/css/main.93a0497a.css.map",
+    "main.0913fcfc.js.map": "https://abernier.github.io/r3f-sticky/static/js/main.0913fcfc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93a0497a.css",
+    "static/js/main.0913fcfc.js"
+  ]
+}
