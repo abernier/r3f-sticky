@@ -3,7 +3,7 @@ import { useSticky } from "./Sticky";
 
 function Pin() {
   const { values } = useSticky();
-  const { vw, vh, x, y, theta, offscreen, bbox, bs, refs } = values;
+  const { vw, vh, x, y, theta, offscreen } = values;
 
   // Stem triangle shape
   const attributeRef = useRef();

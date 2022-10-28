@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState, useMemo } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { clone } from "three/examples/jsm/utils/SkeletonUtils";
 
 // import { SkeletonUtils } from 'three-stdlib'
-import { useLoader, useFrame, useGraph } from "@react-three/fiber";
+import { useFrame, useGraph } from "@react-three/fiber";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
 import { useControls, folder } from "leva";
@@ -23,7 +22,6 @@ function rand(min = 0, max = 1) {
 //
 function Bird({ speed, factor, url, rotY, ...props }) {
   const Sticky = useSticky();
-  // const { animations, scene } = useLoader(GLTFLoader, url)
   const { animations, scene } = useGLTF(url);
 
   // https://codesandbox.io/s/gltf-animations-re-used-forked-r94i1n?file=/src/Model.js:520-532 (@see: https://discord.com/channels/740090768164651008/740093168770613279/1033017786705924297)
@@ -32,11 +30,11 @@ function Bird({ speed, factor, url, rotY, ...props }) {
   const { ref: group } = useAnimations(animations);
 
   const mesh = useRef();
-  const [start] = useState(() => Math.random() * 5000);
+  // const [start] = useState(() => Math.random() * 5000);
   const mixer = useMemo(() => new THREE.AnimationMixer(sceneCopy), [sceneCopy]);
   useEffect(
     () => void mixer.clipAction(animations[0], group.current).play(),
-    [mixer, animations]
+    [mixer, animations, group]
   );
 
   const sceneRef = useRef();
@@ -86,12 +84,12 @@ function RandBird(props) {
     rotation: [0, props.x > 0 ? Math.PI : 0, 0],
     speed:
       props.speed ??
-      (bird === "Stork" ? 0.125 : bird === "Flamingo" ? 0.25 : 2.5),
+      (props.bird === "Stork" ? 0.125 : props.bird === "Flamingo" ? 0.25 : 2.5),
     factor:
       props.factor ??
-      (bird === "Stork"
+      (props.bird === "Stork"
         ? 0.5 + Math.random()
-        : bird === "Flamingo"
+        : props.bird === "Flamingo"
         ? 0.25 + Math.random()
         : 1 + Math.random() - 0.5),
     rotY: props.rotY ?? rand(0, Math.PI),

@@ -9,7 +9,7 @@ import { useSticky } from "./Sticky";
 
 function PinCamera() {
   const { values } = useSticky();
-  const { vw, vh, x, y, theta, offscreen, bbox, bs, refs } = values;
+  const { vw, vh, x, y, theta, offscreen, bs } = values;
   // console.log('Pin', vw, vh, x, y, theta, distance, offscreen)
 
   const gui = useControls("PinCamera", {
@@ -51,7 +51,7 @@ function PinCamera() {
     attributeRef.current.needsUpdate = true; // update once vertices change (@see: https://codesandbox.io/s/dark-rain-xoxsck?file=/src/index.js)
   }, [vertices]);
 
-  const { gl, scene, camera, size, viewport } = useThree();
+  const { gl, scene, camera, size } = useThree();
 
   // WebGLRenderTarget
   const renderTarget = useFBO({

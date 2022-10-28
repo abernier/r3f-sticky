@@ -1,10 +1,8 @@
-import * as THREE from "three";
-import React, { Suspense, useRef, useState, useMemo } from "react";
+import { Suspense, useRef } from "react";
 import styled from "@emotion/styled";
 import { Canvas } from "@react-three/fiber";
 import {
   Sky,
-  Environment,
   OrbitControls,
   PerspectiveCamera,
   Stats,

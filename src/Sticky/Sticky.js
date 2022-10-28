@@ -1,9 +1,8 @@
 import * as THREE from "three";
-import React, {
+import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -12,7 +11,7 @@ import { useThree } from "@react-three/fiber";
 
 import PinArrow from "./Sticky.pin.arrow";
 
-const { degToRad, radToDeg, clamp } = THREE.MathUtils;
+const { degToRad, clamp } = THREE.MathUtils;
 
 const StickyContext = createContext();
 
@@ -32,7 +31,7 @@ function Sticky({ children, Pin, debug }) {
   const sphereRef = useRef(null);
   const boxHelperRef = useRef(null);
 
-  function update() {
+  const update = useCallback(() => {
     // console.log('udpate')
 
     //
@@ -78,10 +77,10 @@ function Sticky({ children, Pin, debug }) {
       Math.abs(projectedCenter.x) > 1 || Math.abs(projectedCenter.y) > 1;
     // console.log('offscreen=', offscreen)
 
-    let x, y, z;
+    let x, y;
     x = clamp(projectedCenter.x, -1, 1);
     y = clamp(projectedCenter.y, -1, 1);
-    // z = clamp(projectedCenter.z, -1, 1)
+    // let z = clamp(projectedCenter.z, -1, 1)
 
     //
     // debug
@@ -108,7 +107,7 @@ function Sticky({ children, Pin, debug }) {
         pin: pinRef.current,
       },
     });
-  }
+  }, [bbox, bs, camera, debug, projectedCenter]);
 
   useLayoutEffect(() => {
     // console.log('camera changed', camera.position.z)
@@ -120,7 +119,7 @@ function Sticky({ children, Pin, debug }) {
     update();
 
     return () => camera.remove(pin);
-  }, [camera]);
+  }, [camera, update]);
 
   const value = {
     update,
@@ -133,7 +132,7 @@ function Sticky({ children, Pin, debug }) {
         {debug && (
           <boxHelper
             ref={boxHelperRef}
-            args={[, 0xff0000]}
+            args={[undefined, 0xff0000]}
             attach={(parent, self) => {
               // console.log('attach', parent, self)
               self.setFromObject(parent);
