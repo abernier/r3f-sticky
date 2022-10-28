@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "https://abernier.github.io/r3f-sticky/static/css/main.93a0497a.css",
-    "main.js": "https://abernier.github.io/r3f-sticky/static/js/main.0913fcfc.js",
+    "main.js": "https://abernier.github.io/r3f-sticky/static/js/main.1e3cb0d4.js",
+    "static/media/bold.blob": "https://abernier.github.io/r3f-sticky/static/media/bold.65e5a908f07c29fdb373.blob",
     "index.html": "https://abernier.github.io/r3f-sticky/index.html",
     "main.93a0497a.css.map": "https://abernier.github.io/r3f-sticky/static/css/main.93a0497a.css.map",
-    "main.0913fcfc.js.map": "https://abernier.github.io/r3f-sticky/static/js/main.0913fcfc.js.map"
+    "main.1e3cb0d4.js.map": "https://abernier.github.io/r3f-sticky/static/js/main.1e3cb0d4.js.map"
   },
   "entrypoints": [
     "static/css/main.93a0497a.css",
-    "static/js/main.0913fcfc.js"
+    "static/js/main.1e3cb0d4.js"
   ]
 }
