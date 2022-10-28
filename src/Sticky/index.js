@@ -1,4 +1,4 @@
-import { default as Sticky, useSticky } from './Sticky'
+import { default as Sticky, useSticky } from "./Sticky";
 
-export default Sticky
-export { useSticky }
+export default Sticky;
+export { useSticky };
